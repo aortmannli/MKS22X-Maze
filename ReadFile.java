@@ -12,14 +12,13 @@ public class ReadFile{
       String out = in.nextLine();
       height ++;
       length = out.length();
-      System.out.println(out);
+      char[][] maze = new char[height][length];
 
-    }
-    char[][] maze = new char[height][length];
-
-    for(int i = 0; i < maze.length; i++){
-      for(int x = 0; x < maze[0].length; x++){
-        System.out.print(maze[i][x]);
+      for(int x = 0; in.hasNextLine(); x++){
+        String line = in.nextLine(0);
+        for(int y = 0; y < length; y++){
+          maze[x][y] = line.charAt(y);
+        }
       }
     }
 
