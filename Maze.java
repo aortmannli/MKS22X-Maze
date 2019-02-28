@@ -25,11 +25,14 @@ public class Maze{
     */
 
     public Maze(String filename) throws FileNotFoundException{
+      int x = 0;
+      int y = 0;
       animate = false;
       File f = new File(args[0]);
       Scanner in = new Scanner(f);
       int height = 0;
       int length = 0;
+      int[] path = new
       while (in.hasNext()) {
         String out = in.nextLine();
         height ++;
@@ -40,12 +43,13 @@ public class Maze{
           String line = in.nextLine(0);
           for(int y = 0; y < length; y++){
             maze[x][y] = line.charAt(y);
-            //if (line.charAt(y) == 'S')
+             if (line.charAt(y) == 'S') s = new int[] {x,y};
           }
         }
+
+        moves = new int[][] {{1,0},{0,1},{-1,0},{0,-1}};
       }
-        //COMPLETE CONSTRUCTOR
-    }
+
 
 
     private void wait(int millis){
