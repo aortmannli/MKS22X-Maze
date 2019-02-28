@@ -84,19 +84,7 @@ public class Maze{
       Since the constructor exits when the file is not found or is missing an E or S, we can assume it exists.
 
     */
-    public int solve(){
 
-            //find the location of the S.
-
-
-            //erase the S
-
-
-            //and start solving at the location of the s.
-
-            //return solve(???,???);
-
-    }
 
     /*
       Recursive Solve function:
@@ -128,7 +116,17 @@ public class Maze{
         }
 
         //COMPLETE SOLVE
-
+        int out = 0;
+        maze[row][column] = '@';
+        if (maze[row][column] == 'E') return out;
+        if (maze[row][column] != ' ') return -1;
+        for(int[] i : moves)[
+          if solve(row+i[0]),col+i[1]) != -1){
+            return out;
+          }
+        ]
+        board[row][col] = '.';
+        out--;
         return -1; //so it compiles
     }
 
