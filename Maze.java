@@ -28,7 +28,7 @@ public class Maze{
       So you don't have to check for out of bounds!
     */
     public Maze(String filename) throws FileNotFoundException{
-      animate = true;
+      animate = false;
       File f = new File(filename);
       Scanner in = new Scanner(f);
       int height = 0;
@@ -128,7 +128,7 @@ public class Maze{
         if(animate){
             clearTerminal();
             System.out.println(this);
-            wait(100);
+            wait(150);
         }
         if (maze[row][col] == 'E') return 1;
         if (maze[row][col] != ' ') return -1;
