@@ -6,6 +6,7 @@ public class Maze{
   private boolean animate;//false by default
   private int[][] moves;
   private int[] S;
+  public int out = 0;
 
   public static void main(String[] args) throws FileNotFoundException{
        Maze yeet = new Maze (args[0]);
@@ -101,11 +102,7 @@ public class Maze{
       Since the constructor exits when the file is not found or is missing an E or S, we can assume it exists.
     */
     public int solve(){
-            //find the location of the S.
             maze[S[0]][S[1]] = ' ';
-            //erase the S
-
-            //and start solving at the location of the s.
             return solve(S[0],S[1]);
     }
 
@@ -123,12 +120,12 @@ public class Maze{
         All visited spots that are part of the solution are changed to '@'
     */
     private int solve(int row, int col){ //you can add more parameters since this is private
-        int out = 0;
+
         //automatic animation! You are welcome.
         if(animate){
             clearTerminal();
             System.out.println(this);
-            wait(150);
+            wait(40);
         }
         if (maze[row][col] == 'E') return 1;
         if (maze[row][col] != ' ') return -1;
@@ -141,12 +138,11 @@ public class Maze{
                 return out;
             }
         }
-        //if the branch fails, reset the spot to 0 and move on to other brances
+
         maze[row][col] = '.';
         out--;
 
-        //COMPLETE SOLVE
-        return -1; //so it compiles
-    }
 
+        return -1;
+    }
 }
